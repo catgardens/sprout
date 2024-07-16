@@ -1,8 +1,4 @@
+{ lib }:
 {
-  lib,
-  ...
-}: {
-  imports = lib.custom.umport {
-    path = ./.;
-  };
+  imports = lib.custom.umport { path = ./.; };
 }
