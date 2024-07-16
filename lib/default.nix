@@ -7,17 +7,11 @@ let
     self:
     let
       callLib = file: import file { lib = self; };
-    in
-    {
       filesets = callLib ./filesets.nix;
       helpers = callLib ./helpers.nix;
       strings = callLib ./strings.nix;
-
-      # here we re-export some of the functions from our lib
-      inherit (self.filesets) importFilesAndDirs;
-      inherit (self.strings) containsStrings;
-      inherit (self.helpers) giturl;
-    }
+    in
+      filesets // helpers // strings
   );
 
   # we need to extend gardenLib with the nixpkgs lib to get the full set of functions
