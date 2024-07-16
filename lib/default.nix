@@ -8,10 +8,11 @@ let
     let
       callLib = file: import file { lib = self; };
       filesets = callLib ./filesets.nix;
+      umport = callLib ./umport.nix;
       helpers = callLib ./helpers.nix;
       strings = callLib ./strings.nix;
     in
-      filesets // helpers // strings
+      filesets // umport // helpers // strings
   );
 
   # we need to extend gardenLib with the nixpkgs lib to get the full set of functions
