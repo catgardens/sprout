@@ -12,12 +12,10 @@ let
     in
     {
       sprout = {
-        fileset = callLib ./fileset.nix;
         helpers = callLib ./helpers.nix;
         options = callLib ./options.nix;
         strings = callLib ./strings.nix;
 
-        inherit (self.sprout.fileset) umport importFilesAndDirs;
         inherit (self.sprout.helpers) giturl;
         inherit (self.sprout.options)
           mkOpt
