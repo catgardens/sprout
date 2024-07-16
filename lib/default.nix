@@ -11,8 +11,9 @@ let
       umport = callLib ./umport.nix;
       helpers = callLib ./helpers.nix;
       strings = callLib ./strings.nix;
+      opts = callLib ./opts.nix;
     in
-      filesets // umport // helpers // strings
+      filesets // umport // helpers // strings // opts
   );
 
   # we need to extend gardenLib with the nixpkgs lib to get the full set of functions
