@@ -1,4 +1,1 @@
-{ lib }:
-{
-  imports = lib.custom.umport { path = ./.; };
-}
+_: { imports = [ ./env ]; }
