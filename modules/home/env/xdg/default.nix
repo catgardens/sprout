@@ -34,7 +34,7 @@ in
           videos = mkOpt' str "${media}/videos";
           music = mkOpt' str "${media}/music";
           pictures = mkOpt' str "${media}/pictures";
-          screenshots = mkOpt' str "${pictures.default}/screenshots";
+          screenshots = mkOpt' str "${media}/pictures/screenshots";
           desktop = mkOpt' str "${homedir}/desktop";
           publicShare = mkOpt' str "${public}/share";
           templates = mkOpt' str "${public}/templates";
