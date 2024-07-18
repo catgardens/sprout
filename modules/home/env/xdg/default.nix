@@ -12,7 +12,7 @@ let
     nameValuePair
     ;
   inherit (lib.strings) toUpper;
-  inherit (lib.options) mkOpt';
+  inherit (lib.sprout.options) mkOpt';
   cfg = config.sprout.env.xdg;
 in
 {
