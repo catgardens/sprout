@@ -11,8 +11,9 @@ let
     mapAttrs'
     nameValuePair
     ;
+  inherit (lib) mkIf;
   inherit (lib.strings) toUpper;
-  inherit (lib.sprout.options) mkOpt';
+  inherit (lib.sprout.options) mkOpt' mkEnableOpt;
   cfg = config.sprout.env.xdg;
 in
 {
@@ -23,6 +24,7 @@ in
       homedir = "${config.home.homeDirectory}";
     in
     {
+      enable = mkEnableOpt "xdg options";
       dirs =
         let
           media = "${homedir}/media";
@@ -57,7 +59,7 @@ in
       };
     };
 
-  config = {
+  config = mkIf cfg.enable {
     home.packages = [ pkgs.xdg-utils ];
 
     home.sessionVariables = mapAttrs' (
