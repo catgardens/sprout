@@ -13,6 +13,7 @@ let
     ;
   inherit (lib.strings) toUpper;
   inherit (lib.options) mkOpt';
+
   cfg = config.sprout.env.xdg;
 in
 {
@@ -40,6 +41,7 @@ in
           templates = mkOpt' str "${public}/templates";
           dev = mkOpt' str "${homedir}/dev";
         };
+
       homedirs = {
         data = mkOpt' str "${homedir}/.local/share";
         state = mkOpt' str "${homedir}/.local/state";
@@ -47,11 +49,13 @@ in
         bin = mkOpt' str "${homedir}/.loca/bin";
         config = mkOpt' str "${homedir}/.config";
       };
+
       applications = {
         editor = mkOpt' strListOrSingleton "neovim.desktop";
         browser = mkOpt' strListOrSingleton "firefox.desktop";
         filemanager = mkOpt' strListOrSingleton "thunar.desktop";
       };
+
       settings = {
         associations = mkOpt' (attrsOf strListOrSingleton) { };
       };

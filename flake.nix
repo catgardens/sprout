@@ -2,9 +2,9 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs?dir=lib";
 
   outputs =
-    { nixpkgs, ... }:
+    inputs:
     let
-      lib = import ./lib { lib0 = nixpkgs.lib; };
+      lib = import ./lib { lib0 = inputs.nixpkgs.lib; };
     in
     {
       inherit lib;
